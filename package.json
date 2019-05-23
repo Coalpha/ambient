@@ -1,0 +1,13 @@
+{
+  "name": "ambient",
+  "version": "1.0.0",
+  "description": "This is a package.json so that I can install stuff",
+  "scripts": {
+    "start": "exec echo 'Great! Nothing happened'"
+  },
+  "author": "Coalpha",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.0.0"
+  }
+}

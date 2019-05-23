@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ -z "$AMBIINIT" ]; then
+  echo "Missing critical environment variables. Did you set your shell to /usr/bin/ambiinit?"
+  vipw
+fi
+
+if [ -z $once ]; then
+  source "$dotfiles/once"
+fi
+
+if [[ $- == *i* ]]; then
+  for i in "$dotfiles/interactive/"*.sh; do
+    source "$i"
+  done
+fi

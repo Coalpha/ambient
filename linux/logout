@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$SHLVL" = 1 ]; then
+  if $wsl && [ -x "$wslfiles/logout" ]; then
+    exec "$wslfiles/logout"
+  fi
+fi

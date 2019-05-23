@@ -1,0 +1,39 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use feature qw(say);
+
+my $reset = $ENV{'reset'};
+
+sub croak {
+  say STDERR "cole's scala run tool
+  Usage:
+    csrt file [class]
+  If you omit the class argument,
+  csrt will assume that the class you'd like to run
+  has the same name as the file minus the extension
+  ";
+  exit 1;
+}
+
+if ($#ARGV < 0 or $#ARGV > 1) {
+  croak;
+}
+my $file = shift;
+my $class = shift or system("nameplate $file");
+
+my $bar = ("-" x (`tput cols` - 6)) . $reset;
+
+say $ENV{'orange'} . 'scalac' . $bar;
+my $exit = system("scalac $file -Xdev -deprecation -unchecked");
+if ($exit != 0) {
+  say STDERR $ENV{'red'} . "scalac failed!" . $reset;
+  exit $exit;
+}
+
+say $ENV{'orange'} . 'scala-' . $bar;
+$exit = system("scala $class");
+if ($exit != 0) {
+  say STDERR $ENV{'pink'} . "scalc failed!" . $reset;
+  exit $exit;
+}

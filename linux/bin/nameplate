@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use feature qw(say);
+
+if ($#ARGV != 0) {
+  say STDERR "nameplate: expected one argument";
+  exit 1;
+}
+if ($ARGV[0] =~ m{([^/\\?%*:|"<>]*)\.}) {
+  print "$1";
+  exit 0;
+} else {
+  print "/dev/null";
+  exit 1;
+}

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ $_ != $0 ]]; then
+  source "$dotfiles/main"
+else
+  echo "You must source this script"
+  exit 1
+fi

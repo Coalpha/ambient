@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec cmdrc 'echo\|set /p="%$1%"'

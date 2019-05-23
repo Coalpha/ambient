@@ -1,0 +1,65 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+use File::Path;
+use File::Copy;
+use File::Basename;
+use feature qw(say);
+use Cwd qw(abs_path);
+
+if ($<) {
+  say STDERR "You must run this script as root!";
+  exit 1;
+}
+
+# lonk from <FILE> to <LINK>
+sub lonk {
+  my $source = shift;
+  my $link = shift;
+  if ( -l $link ) {
+    unlink $link;
+  } elsif ( -d $link ) {
+    rmtree($link);
+  } elsif ( -e $link) {
+    unlink $link;
+  }
+  symlink ($source, $link);
+}
+
+my $dotfiles = abs_path(dirname(__FILE__));
+my $ambient = abs_path("$dotfiles/..");
+open (my $conf, '>', '/etc/ambient');
+print $conf $ambient;
+close $conf;
+
+unlink "/etc/environment";
+lonk("$dotfiles/main", '/etc/profile');
+lonk("$dotfiles/main", '/etc/bash.bashrc');
+lonk("$dotfiles/logout", '/etc/bash.bash_logout');
+lonk("$dotfiles/misc/apt", '/etc/apt');
+
+sub do_home {
+  my $home = shift;
+  $home =~ /\/(\w+)$/;
+  my $username = $1;
+  my $history = "$home/.bash_history";
+  unlink $history;
+  `touch $history`;
+  chmod 0777, $history;
+  `chown $username $history`;
+  lonk("$dotfiles/misc/.gitconfig", "$home/.gitconfig");
+  unlink "$home/.bashrc";
+  unlink "$home/.bash_profile";
+  unlink "$home/.bash_login";
+  unlink "$home/.profile";
+  unlink "$home/.bash_logout";
+  unlink "$home/.inputrc";
+}
+
+do_home '/root';
+foreach my $dir (</home/*>) {
+  do_home $dir;
+}
+
+copy("$dotfiles/misc/ambiinit", "/usr/bin/ambiinit");

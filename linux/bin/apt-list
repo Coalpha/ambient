@@ -1,0 +1,24 @@
+#!/bin/bash
+
+## https://gist.github.com/UniIsland
+export LC_ALL=C
+
+parse_dpkg_log() {
+  {
+    for log in /var/log/dpkg.log* ; do
+      cmd=cat
+      [ "${FN##*.}" == "gz" ] && cmd="zcat"
+      $cmd "$log" | grep -E "[0-9] install" | awk '{print $4}' \
+        | awk -F":" '{print $1}'
+    done
+  } | sort | uniq
+}
+
+## all packages installed with apt-get/aptitude
+list_installed=$(parse_dpkg_log)
+## packages that were not marked as auto installed
+list_manual=$(apt-mark showmanual | sort)
+
+## output intersection of 2 lists
+comm -12 <(echo "$list_installed") <(echo "$list_manual")
+

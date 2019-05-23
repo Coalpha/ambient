@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+my ($red, $green, $blue) = ($ARGV[0] =~ /(\w\w)(\w\w)(\w\w)/);
+print "\033[38;2;" . hex($red) . ';' . hex($green) . ';' . hex($blue) . 'm';

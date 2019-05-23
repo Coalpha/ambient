@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+const colorHex = process.argv[2];
+const color = {
+  r: parseInt(colorHex.slice(0, 2), 16),
+  g: parseInt(colorHex.slice(2, 4), 16),
+  b: parseInt(colorHex.slice(4, 6), 16),
+};
+const out = s => process.stdout.write(s);
+console.log(`#${colorHex}`);
+const end = `;2;${color.r};${color.g};${color.b}m`;
+out(`\\033[48${end}: `)
+console.log(`\x1b[48${end}             \x1b[0m`);
+out(`\\033[38${end}: `)
+console.log(`\x1b[38${end}Hello, World!`)

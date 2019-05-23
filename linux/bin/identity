@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$0" = "-bash" ]; then
+  which bash
+else
+  dirname "$(realpath "$0")"
+fi

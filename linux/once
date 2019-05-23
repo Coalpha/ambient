@@ -1,0 +1,41 @@
+#!/bin/bash
+
+falfa=/home/falfa
+export PATH="\
+/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin\
+:$dotfiles/bin:$dotfiles/box:$falfa/.cargo/bin:$falfa/.deno/bin\
+"
+
+export reset=$'\e[0m'
+export bold=$'\e[1m'
+export dim=$'\e[2m'
+export invert=$'\e[7m'
+export invis=$'\e[8m'
+
+export black=$'\e[30m'
+export red=$'\e[31m'
+export green=$'\e[32m'
+export orange=$'\e[33m'
+export blue=$'\e[34m'
+export purple=$'\e[35m'
+export cyan=$'\e[36m'
+
+export grey=$'\e[90m'
+export pink=$'\e[91m'
+export lime=$'\e[92m'
+export yellow=$'\e[93m'
+
+export SHELLCHECK_OPT="-e 2155 -e 2164"
+
+export NODE_PATH="$dotfiles/node_modules"
+
+export wslfiles="$dotfiles/wsl"
+# if $wsl; then
+#   source "$wslfiles/wslaunch"
+# fi
+
+export once=true
+# In contrast, a umask of 000 will make newly created directories readable,
+# writable and descendible for everyone (the permissions will be 777).
+# Such a umask is highly insecure and you should never set the umask to 000.
+umask 000

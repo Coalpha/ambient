@@ -1,0 +1,45 @@
+hotkeys:
+  shell: {}
+  profile: {}
+ssh: {}
+terminal:
+  colorScheme: &ref_0
+    name: Coalpha Colors
+    foreground: '#c4c5b5'
+    background: '#202A35'
+    cursor: '#f6f7ec'
+    colors:
+      - '#1a1a1a'
+      - '#ff0883'
+      - '#86f420'
+      - '#fa8419'
+      - '#0883ff'
+      - '#9d65ff'
+      - '#009B9B'
+      - '#e7e5e7'
+      - '#625e4c'
+      - '#FF69B4'
+      - '#98FB98'
+      - '#F0E68C'
+      - '#87CEFA'
+      - '#FF00FF'
+      - '#58d1eb'
+      - '#ffffff'
+  environment: {}
+  shell: wsl-Ubuntu
+  frontend: xterm
+  cursorBlink: false
+  font: Hack
+  fontSize: 15
+  rightClick: paste
+  autoOpen: true
+  bracketedPaste: false
+  customColorSchemes:
+    - *ref_0
+  background: colorScheme
+  cursor: block
+appearance:
+  frame: thin
+  dock: 'off'
+enableAnalytics: false
+pluginBlacklist: []

@@ -1,0 +1,7 @@
+//usr/bin/tcc -run "$0"; exit 0
+#include <stdio.h>
+
+int main(void) {
+  puts("Welcome to tcc hell");
+  return 0;
+}

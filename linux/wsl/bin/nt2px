@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+
+local $/;
+my $stdin = <STDIN>;
+$stdin =~ s{C:}{/mnt/c}g;
+$stdin =~ s{\\}{/}g;
+$stdin =~ s{\r\n}{\n}g;
+print $stdin;

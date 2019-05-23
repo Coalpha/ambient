@@ -1,0 +1,50 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use feature qw(say);
+
+my $reset = "\033[0m";
+my $red = "\033[31m";
+my $orange = "\033[33m";
+my $pink = "\033[91m";
+
+$SIG{INT} = sub {
+  print "\033[2J\033[0;0f"; # clear the screen
+  say "homecheck: aborting...";
+  exit 1;
+};
+
+sub check_file {
+  my $file = shift;
+  if ( -e $file ) {
+    say $pink . $file . "$reset: ";
+    open FILE, $file;
+    while (my $line = <FILE>) {
+      print "  $orange|$reset  $line";
+    }
+    say 'delete "' . $file . '"? (default: no)';
+    print '(yes|no): ';
+    my $answer = <STDIN>;
+    chomp $answer;
+    if ($answer eq 'yes') {
+      unlink $file;
+      say $red . "deleted $file!$reset";
+    }
+  }
+}
+
+sub check_home {
+  my $home = shift;
+  check_file "$home/.bashrc";
+  check_file "$home/.profile";
+  check_file "$home/.bash_profile";
+  check_file "$home/.bash_login";
+  check_file "$home/.bash_logout";
+}
+
+if ($< == 0) {
+  check_home '/root';
+}
+foreach (</home/*>) {
+  check_home $_;
+}

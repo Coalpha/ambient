@@ -1,0 +1,87 @@
+#!/usr/bin/env node
+
+const c = n => `[${n}m`
+const reset  = c(00);
+const green  = c(32);
+const orange = c(33);
+const blue   = c(34);
+const cyan   = c(36);
+const grey   = c(90);
+const yellow = c(93);
+
+const out       = s => process.stdout.write(s);
+const puts      = s => out(s + `${reset}\n`);
+const colors    = s => s.replace(/(\033\[([\d;]+)m)/g, "$1\\033[$2m");
+const delimiter = process.platform === "win32" ? ';' : ':';
+
+function usage() {
+  console.error(`\
+my-env [options]
+options:
+  -s --no-sort    disables alphabetical sorting of environment variables
+  -l --no-lists   disables strings containing '${delimiter}' from being recognized as lists
+  -p --no-prompt  disables the smart replacement of \\[ and \\] within the PS1 global variable
+  -c --no-colors  disables visible color escapes\
+  `);
+  process.exit(1);
+}
+
+let sort = true;
+let smartLists = true;
+let smartPrompt = true;
+let smartColors = true;
+process.argv.slice(2).forEach(arg => {
+  switch (arg) {
+    case "-s":
+    case "--no-sort":
+      sort = false;
+      break;
+    case "-l":
+    case "--no-lists":
+      smartLists = false;
+      break;
+    case "-p":
+    case "--no-prompt":
+      smartPrompt = false;
+      break;
+    case "-c":
+    case "--no-colors":
+      smartColors = false;
+      break;
+    default: usage();
+  }
+});
+
+function sayKey(key) { out(`${green}${key}${orange}:${reset} `) }
+function sayPrompt(val) { puts(val.replace(/\\[\[\]]/g, '')) }
+function sayList(list) { list.forEach(s => puts(`  ${s}`)) }
+
+function isBashFunction(key) {
+  return key.startsWith("BASH_FUNC_") && key.endsWith("%%");
+}
+function writeBashFunction(key) {
+  const name = key.slice(10, -2);
+  puts(`${cyan}function ${green}${name} ${blue}{${grey} ... ${blue}}`);
+}
+function sayVal(val) {
+  if (val.includes(delimiter) && smartLists) {
+    puts(`${yellow}[`);
+    sayList(val.split(delimiter));
+    puts(`${yellow}[`);
+  } else {
+    puts(val);
+  }
+}
+
+Object.keys(process.env)[(sort ? "sort" : "slice")]().forEach((key) => {
+  if (isBashFunction(key)) {
+    return writeBashFunction(key);
+  }
+  sayKey(key);
+  const val = process.env[key];
+  if (key == "PS1" && smartPrompt) {
+    sayPrompt(val);
+  } else {
+    sayVal(smartColors ? colors(val) : val);
+  }
+});

@@ -1,0 +1,3 @@
+#!/usr/bin/perl
+
+print $ENV{'PATH'} =~ s{:}{\n}gr . "\n"

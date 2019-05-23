@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "${orange}ending all wsl instances, please wait...$reset"
+lxend

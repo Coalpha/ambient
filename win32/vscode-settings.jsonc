@@ -1,0 +1,158 @@
+{
+  /* Visual Stuido Code Settings */
+    // Terminal
+      "terminal.integrated.shell.windows": "/Windows/System32/wsl.exe",
+      "terminal.integrated.fontFamily": "Hack, Ubuntu Mono, Consolas",
+      "terminal.external.windowsExec": "/windows/system32/wsl.exe",
+    // Editor
+      // Functionality
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false,
+        "editor.suggestSelection": "first",
+        "editor.selectionHighlight": false, // too distracting
+        "editor.multiCursorModifier": "ctrlCmd",
+        "editor.emptySelectionClipboard": false,
+      // Autocomplete
+        "editor.acceptSuggestionOnEnter": "off",
+      // Appearance
+        "editor.fontFamily": "Hack, Consolas, monospace",
+        "editor.renderWhitespace": "boundary",
+        "editor.accessibilitySupport": "off",
+        "editor.dragAndDrop": false,
+        "editor.parameterHints.enabled": false,
+        "editor.minimap.renderCharacters": false,
+        "editor.acceptSuggestionOnCommitCharacter": false,
+    // Files
+      "files.eol": "\n",
+      "files.insertFinalNewline": true,
+      "files.autoSave": "off",
+      "files.associations": {
+        "*.bash_profile": "shellscript",
+        "*.bashrc": "shellscript",
+      },
+    // File Tree
+      "explorer.confirmDragAndDrop": false,
+    // Workbench
+      "workbench.startupEditor": "none",
+      "workbench.list.keyboardNavigation": "simple", // turns off that annoying filter "feature"
+      "workbench.editor.highlightModifiedTabs": true,
+      "workbench.settings.useSplitJSON": true,
+      "workbench.sideBar.location": "right",
+      "window.newWindowDimensions": "maximized",
+      // Theme
+        "materialTheme.accent": "Indigo",
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.colorCustomizations": {
+          "editorWarning.foreground": "#b6c9",
+        },
+    // Window
+      "window.zoomLevel": 0,
+      "window.restoreWindows": "folders",
+      "window.menuBarVisibility": "visible",
+    // Debug
+      "debug.openDebug": "neverOpen",
+      "debug.showInStatusBar": "never",
+      "debug.internalConsoleOptions": "neverOpen",
+    // etc..
+      "telemetry.enableTelemetry": false,
+      "breadcrumbs.enabled": true,
+      "explorer.sortOrder": "type",
+  /* Language Specific */
+    // (?:Java|Type)Script
+      "javascript.validate.enable": false, // Just gets annoying
+      "javascript.autoClosingTags": false,
+      "javascript.preferences.quoteStyle": "double",
+      "javascript.suggest.completeJSDocs": false,
+      "javascript.updateImportsOnFileMove.enabled": "always",
+    // Java
+      "java.autobuild.enabled": false,
+      "java.import.maven.enabled": false,
+      "java.progressReports.enabled": false,
+      "java.errors.incompleteClasspath.severity": "ignore",
+      "java.configuration.updateBuildConfiguration": "disabled",
+      "java.format.settings.profile": "GoogleStyle",
+      "java.completion.guessMethodArguments": true,
+      "java.format.onType.enabled": false,
+      "java.configuration.checkProjectSettingsExclusions": false,
+    // Kotlin
+      "[kotlin]": {},
+    // D
+      "d.enableAutoComplete": false,
+      "d.enableFormatting": false,
+      "dfmt.spaceAfterCast": false,
+    // C#
+      "csharp.format.enable": false,
+      "csharpfixformat.sort.usings.splitGroups": true,
+      "csharpfixformat.style.newline.atEnd": true,
+      "csharpfixformat.style.spaces.beforeParenthesis": false,
+    // C(?:++)?
+      "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    // Crystal
+      "crystal-lang.compiler": "crystal.bat",
+      "crystal-lang.bashOnWindows": true,
+      "crystal-lang.hover": true,
+      "crystal-lang.logLevel": "warn",
+  /* Extensions */
+    "extensions.ignoreRecommendations": true,
+    "extensions.showRecommendationsOnlyOnDemand": true,
+    // Atom Keymap
+      "atomKeymap.promptV3Features": true,
+    // git
+      "git.defaultCloneDirectory": "/Users/Alf/Desktop",
+      "git.enableSmartCommit": true,
+      "git.confirmSync": false,
+      "git.autofetch": true,
+      "git.path": "/Users/Alf/Desktop/ambient/nt/bin/git.exe",
+      "git.ignoreMissingGitWarning": true,
+    // Shellcheck
+      "shellcheck.useWSL": true,
+      "shellcheck.disableVersionCheck": true,
+      "cSpell.spellCheckDelayMs": 999,
+    // Liveshare
+      "liveshare.showInStatusBar": "never",
+    // Settings Sync
+      "sync.gist": "0a038f3900f101ea5a7d9e3a8cefa539",
+    // Code Time
+      "showWeeklyRanking": false,
+      "showMusicMetrics": false,
+      "showGitMetrics": false,
+    // Spell Check
+      "cSpell.logLevel": "Information",
+      "cSpell.language": "en,en-US",
+      "workbench.colorTheme": "Material Theme Palenight",
+      "liveshare.featureSet": "insiders",
+      "fortran.linterEnabled": false,
+      "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "go",
+        "handlebars",
+        "html",
+        "jade",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "jsonc",
+        "latex",
+        "less",
+        "markdown",
+        "perl",
+        "php",
+        "plaintext",
+        "pug",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scala",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yaml",
+        "yml"
+      ],
+}

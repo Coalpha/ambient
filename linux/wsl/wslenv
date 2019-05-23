@@ -1,0 +1,18 @@
+#!/bin/bash
+
+PATH+=":$wslfiles/box:$wslfiles/shims"
+
+export C="/mnt/c"
+export windir="$C/windows"
+export system32="$windir/system32"
+
+# if cmdrc elevated; then
+#   UACe=true
+# else
+#   UACe=false
+# fi
+# export UACe
+
+if $interactive; then
+  source "$wslfiles/aliases.sh"
+fi

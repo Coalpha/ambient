@@ -1,0 +1,102 @@
+#!/usr/bin/env node
+const argv = process.argv.slice(2);
+
+const out = s => process.stdout.write(s);
+out("\033[0m");
+function reset() { console.log("\033[0m") }
+
+let code    = 48;
+let start   = 40;
+let noisy   = true;
+let verbose = false;
+
+function usage() {
+  console.error(`\
+colors [mode] [-v | --verbose]
+modes:
+  fg | foreground
+  bg | background
+  q  | quiet\
+  `);
+  process.exit(1);
+}
+
+function range(a, b) {
+  const ary = [];
+  for (let i = a; i < b; i++) {
+    ary.push(i);
+  }
+  return ary;
+}
+
+function label(color) {
+  if (noisy) {
+    out(`${color}`.padStart(3, '0'));
+  } else {
+    out("   ");
+  }
+}
+
+function display(color, str) {
+  process.stdout.write(`\x1b[${str}m`);
+  label(color);
+}
+
+function colors16(ary) {
+  ary.forEach(color => display(color, color));
+  reset();
+}
+
+function colors256(ary) {
+  ary.forEach(color => display(color, `${code};5;${color}`));
+  reset();
+}
+
+if (argv.length > 2) {
+  usage();
+}
+argv.forEach(arg => {
+  switch (arg) {
+    case "q":
+    case "quiet":
+    case "s":
+    case "silent":
+      noisy = false;
+    case "bg":
+    case "back":
+    case "background":
+      break;
+    case "fg":
+    case "fore":
+    case "foreground":
+      code = 38;
+      start -= 10;
+      break;
+    case "-v":
+    case "--verbose":
+      verbose = true;
+      break;
+    default: usage();
+  }
+});
+
+if (verbose) {
+  if (!noisy) {
+    console.log("but why...?");
+  }
+  console.log("\\033[___m");
+}
+
+colors16(range(start, start + 8));
+colors16(range(start + 60, start + 68));
+console.log();
+
+if (verbose) {
+  console.log(`\\033[${code};5;___m`);
+}
+colors256(range(0, 8));
+colors256(range(8, 16));
+for (let i = 0; i < 6; i++) {
+  colors256(range(i * 36 + 16, i * 36 + 51));
+}
+colors256(range(232, 256));
