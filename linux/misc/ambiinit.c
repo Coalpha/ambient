@@ -1,4 +1,3 @@
-// cd /mnt/c/ambient/linux/misc; gcc ambiinit.c -g3 -o /usr/bin/ambiinit && /usr/bin/ambiinit
 #define _GNU_SOURCE
 // #define DEBUG
 #include <stdio.h>
@@ -53,6 +52,7 @@ int main(int argc, char** argv) {
     concat("ambient=", ambient),
     concat("dotfiles=", dotfiles),
     concat("BASH_ENV=", BASH_ENV),
+    "SHELL=/usr/bin/ambiinit",
     "TERM=xterm-256color",
     "AMBIINIT=true",
     "LANG=C.UTF-8",

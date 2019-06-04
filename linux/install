@@ -38,6 +38,7 @@ lonk("$dotfiles/main", '/etc/profile');
 lonk("$dotfiles/main", '/etc/bash.bashrc');
 lonk("$dotfiles/logout", '/etc/bash.bash_logout');
 lonk("$dotfiles/misc/apt", '/etc/apt');
+lonk("$dotfiles/misc/.gitconfig", "/etc/gitconfig");
 
 sub do_home {
   my $home = shift;
@@ -48,7 +49,6 @@ sub do_home {
   `touch $history`;
   chmod 0777, $history;
   `chown $username $history`;
-  lonk("$dotfiles/misc/.gitconfig", "$home/.gitconfig");
   unlink "$home/.bashrc";
   unlink "$home/.bash_profile";
   unlink "$home/.bash_login";

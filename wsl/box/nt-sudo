@@ -1,7 +1,0 @@
-#!/bin/bash
-
-passthrough=poshrc
-if ! $UACe; then
-  passthrough+=" sudo"
-fi
-exec $passthrough "$*"

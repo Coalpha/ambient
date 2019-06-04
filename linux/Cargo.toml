@@ -1,0 +1,11 @@
+[package]
+name = "ambient_linux"
+version = "0.0.1"
+authors = ["Cole Gannon <Arcanehood@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+
+[[bin]]
+name="coloraze"
+path="src/coloraze.rs"

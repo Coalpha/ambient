@@ -1,3 +1,0 @@
-#!/bin/bash
-
-exec choco list --local-only --all-versions

@@ -1,4 +1,0 @@
-#!/usr/bin/perl
-
-local $/;
-print ((<STDIN> =~ s{/mnt/c}{C:}gr) =~ s{\n}{\r\n});

@@ -1,6 +1,8 @@
 #!/bin/bash
 
 falfa=/home/falfa
+export HOME=~
+export USER=$(whoami)
 export PATH="\
 /bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin\
 :$dotfiles/bin:$dotfiles/box:$falfa/.cargo/bin:$falfa/.deno/bin\
@@ -13,6 +15,7 @@ export invert=$'\e[7m'
 export invis=$'\e[8m'
 
 export black=$'\e[30m'
+
 export red=$'\e[31m'
 export green=$'\e[32m'
 export orange=$'\e[33m'
@@ -25,7 +28,10 @@ export pink=$'\e[91m'
 export lime=$'\e[92m'
 export yellow=$'\e[93m'
 
-export SHELLCHECK_OPT="-e 2155 -e 2164"
+export SHELLCHECK_OPTS="--shell=bash -e 1090,2155,2164"
+# 1090 non constant source
+# 2155 declare and assign separately
+# 2164 use cd || exit
 
 export NODE_PATH="$dotfiles/node_modules"
 
@@ -39,3 +45,4 @@ export once=true
 # writable and descendible for everyone (the permissions will be 777).
 # Such a umask is highly insecure and you should never set the umask to 000.
 umask 000
+# no u

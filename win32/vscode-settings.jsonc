@@ -1,158 +1,113 @@
 {
-  /* Visual Stuido Code Settings */
-    // Terminal
-      "terminal.integrated.shell.windows": "/Windows/System32/wsl.exe",
-      "terminal.integrated.fontFamily": "Hack, Ubuntu Mono, Consolas",
-      "terminal.external.windowsExec": "/windows/system32/wsl.exe",
-    // Editor
-      // Functionality
-        "editor.tabSize": 2,
-        "editor.detectIndentation": false,
-        "editor.suggestSelection": "first",
-        "editor.selectionHighlight": false, // too distracting
-        "editor.multiCursorModifier": "ctrlCmd",
-        "editor.emptySelectionClipboard": false,
-      // Autocomplete
-        "editor.acceptSuggestionOnEnter": "off",
-      // Appearance
-        "editor.fontFamily": "Hack, Consolas, monospace",
-        "editor.renderWhitespace": "boundary",
-        "editor.accessibilitySupport": "off",
-        "editor.dragAndDrop": false,
-        "editor.parameterHints.enabled": false,
-        "editor.minimap.renderCharacters": false,
-        "editor.acceptSuggestionOnCommitCharacter": false,
-    // Files
-      "files.eol": "\n",
-      "files.insertFinalNewline": true,
-      "files.autoSave": "off",
-      "files.associations": {
-        "*.bash_profile": "shellscript",
-        "*.bashrc": "shellscript",
-      },
-    // File Tree
-      "explorer.confirmDragAndDrop": false,
-    // Workbench
-      "workbench.startupEditor": "none",
-      "workbench.list.keyboardNavigation": "simple", // turns off that annoying filter "feature"
-      "workbench.editor.highlightModifiedTabs": true,
-      "workbench.settings.useSplitJSON": true,
-      "workbench.sideBar.location": "right",
-      "window.newWindowDimensions": "maximized",
-      // Theme
-        "materialTheme.accent": "Indigo",
-        "workbench.iconTheme": "material-icon-theme",
-        "workbench.colorCustomizations": {
-          "editorWarning.foreground": "#b6c9",
-        },
-    // Window
-      "window.zoomLevel": 0,
-      "window.restoreWindows": "folders",
-      "window.menuBarVisibility": "visible",
-    // Debug
-      "debug.openDebug": "neverOpen",
-      "debug.showInStatusBar": "never",
-      "debug.internalConsoleOptions": "neverOpen",
-    // etc..
-      "telemetry.enableTelemetry": false,
-      "breadcrumbs.enabled": true,
-      "explorer.sortOrder": "type",
-  /* Language Specific */
-    // (?:Java|Type)Script
-      "javascript.validate.enable": false, // Just gets annoying
-      "javascript.autoClosingTags": false,
-      "javascript.preferences.quoteStyle": "double",
-      "javascript.suggest.completeJSDocs": false,
-      "javascript.updateImportsOnFileMove.enabled": "always",
-    // Java
-      "java.autobuild.enabled": false,
-      "java.import.maven.enabled": false,
-      "java.progressReports.enabled": false,
-      "java.errors.incompleteClasspath.severity": "ignore",
-      "java.configuration.updateBuildConfiguration": "disabled",
-      "java.format.settings.profile": "GoogleStyle",
-      "java.completion.guessMethodArguments": true,
-      "java.format.onType.enabled": false,
-      "java.configuration.checkProjectSettingsExclusions": false,
-    // Kotlin
-      "[kotlin]": {},
-    // D
-      "d.enableAutoComplete": false,
-      "d.enableFormatting": false,
-      "dfmt.spaceAfterCast": false,
-    // C#
-      "csharp.format.enable": false,
-      "csharpfixformat.sort.usings.splitGroups": true,
-      "csharpfixformat.style.newline.atEnd": true,
-      "csharpfixformat.style.spaces.beforeParenthesis": false,
-    // C(?:++)?
-      "C_Cpp.clang_format_fallbackStyle": "LLVM",
-    // Crystal
-      "crystal-lang.compiler": "crystal.bat",
-      "crystal-lang.bashOnWindows": true,
-      "crystal-lang.hover": true,
-      "crystal-lang.logLevel": "warn",
-  /* Extensions */
-    "extensions.ignoreRecommendations": true,
-    "extensions.showRecommendationsOnlyOnDemand": true,
-    // Atom Keymap
-      "atomKeymap.promptV3Features": true,
-    // git
-      "git.defaultCloneDirectory": "/Users/Alf/Desktop",
-      "git.enableSmartCommit": true,
-      "git.confirmSync": false,
-      "git.autofetch": true,
-      "git.path": "/Users/Alf/Desktop/ambient/nt/bin/git.exe",
-      "git.ignoreMissingGitWarning": true,
-    // Shellcheck
-      "shellcheck.useWSL": true,
-      "shellcheck.disableVersionCheck": true,
-      "cSpell.spellCheckDelayMs": 999,
-    // Liveshare
-      "liveshare.showInStatusBar": "never",
-    // Settings Sync
-      "sync.gist": "0a038f3900f101ea5a7d9e3a8cefa539",
-    // Code Time
-      "showWeeklyRanking": false,
-      "showMusicMetrics": false,
-      "showGitMetrics": false,
-    // Spell Check
-      "cSpell.logLevel": "Information",
-      "cSpell.language": "en,en-US",
-      "workbench.colorTheme": "Material Theme Palenight",
-      "liveshare.featureSet": "insiders",
-      "fortran.linterEnabled": false,
-      "cSpell.enabledLanguageIds": [
-        "asciidoc",
-        "c",
-        "cpp",
-        "csharp",
-        "css",
-        "go",
-        "handlebars",
-        "html",
-        "jade",
-        "java",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "jsonc",
-        "latex",
-        "less",
-        "markdown",
-        "perl",
-        "php",
-        "plaintext",
-        "pug",
-        "python",
-        "restructuredtext",
-        "rust",
-        "scala",
-        "scss",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "yaml",
-        "yml"
-      ],
+  // terminal
+  "terminal.integrated.fontSize": 17,
+  "terminal.integrated.fontFamily": "Ubuntu Mono, Consolas",
+  "terminal.integrated.shell.windows": "/windows/system32/wsl.exe",
+  // editor
+  "editor.tabSize": 2,
+  "editor.fontFamily": "Hack, Consolas",
+  "editor.dragAndDrop": false,
+  "editor.suggestSelection": "first",
+  "editor.renderWhitespace": "boundary",
+  "editor.detectIndentation": false,
+  "editor.selectionHighlight": false, // too distracting
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.accessibilitySupport": "off",
+  "editor.parameterHints.enabled": false,
+  "editor.acceptSuggestionOnEnter": "off", // real editors use tab
+  "editor.emptySelectionClipboard": false, // copying empty stuff is useless
+  "editor.minimap.renderCharacters": false, // wanna waste your battery?
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  // files
+  "files.eol": "\n",
+  "files.autoSave": "off",
+  "files.insertFinalNewline": true,
+  // explorer
+  "explorer.confirmDragAndDrop": false, // "do you want to move this?"
+  // workbench
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Monokai Pro (Filter Ristretto)",
+  "workbench.startupEditor": "none",
+  "workbench.sideBar.location": "right", // keep the file tree on the right since code is left aligned
+  "workbench.settings.useSplitJSON": true,
+  "workbench.list.keyboardNavigation": "simple", // turns off that annoying filter "feature"
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.colorCustomizations": { /* https://code.visualstudio.com/api/references/theme-color */ },
+  // window
+  "window.zoomLevel": 0,
+  "window.restoreWindows": "folders",
+  "window.menuBarVisibility": "visible",
+  "window.newWindowDimensions": "maximized",
+  // debug
+  "debug.openDebug": "neverOpen",
+  "debug.showInStatusBar": "never",
+  "debug.internalConsoleOptions": "neverOpen",
+  // extensions
+  "extensions.ignoreRecommendations": true,
+  "extensions.showRecommendationsOnlyOnDemand": true,
+  // javascript
+  "javascript.validate.enable": false, // Just gets annoying
+  "javascript.autoClosingTags": false,
+  "javascript.suggest.completeJSDocs": false,
+  "javascript.preferences.quoteStyle": "double",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // java
+  "java.autobuild.enabled": false,
+  "java.import.maven.enabled": false,
+  "java.format.onType.enabled": false,
+  "java.progressReports.enabled": false,
+  "java.format.settings.profile": "GoogleStyle",
+  "java.completion.guessMethodArguments": true,
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "java.configuration.updateBuildConfiguration": "disabled",
+  "java.configuration.checkProjectSettingsExclusions": false,
+  // C_Cpp
+  "C_Cpp.clang_format_fallbackStyle": "LLVM",
+  // crystal
+  "crystal-lang.hover": true,
+  "crystal-lang.compiler": "",
+  "crystal-lang.logLevel": "warn",
+  "crystal-lang.server": "scry",
+  // git
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "git.ignoreMissingGitWarning": true,
+  // shellcheck
+  "shellcheck.disableVersionCheck": true,
+  // liveshare
+  "liveshare.showInStatusBar": "never",
+  // sync
+  "sync.gist": "0a038f3900f101ea5a7d9e3a8cefa539",
+  // code time
+  "showGitMetrics": false,
+  "showMusicMetrics": false,
+  "showWeeklyRanking": true,
+  // cSpell
+  "cSpell.ignoreWords": [
+    "LLVM",
+    "classpath",
+    "shellcheck",
+    "liveshare",
+    "Customizations",
+    "Monokai",
+    "Ristretto",
+    "autobuild",
+    "autofetch",
+    "Consolas",
+    "scry",
+  ],
+  "cSpell.language": "en,en-US",
+  "cSpell.logLevel": "Information",
+  "cSpell.spellCheckDelayMs": 999,
+  "cSpell.fixSpellingWithRenameProvider": true,
+  // bracketPairColorizer
+  "bracketPairColorizer.rulerPosition": "Full",
+  "bracketPairColorizer.showBracketsInRuler": true,
+  "bracketPairColorizer.showBracketsInGutter": true,
+  "editor.formatOnPaste": true,
+  // misc
+  "breadcrumbs.enabled": true,
+  "telemetry.enableTelemetry": false,
+  "atomKeymap.promptV3Features": true,
 }

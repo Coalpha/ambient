@@ -1,3 +1,0 @@
-#!/bin/bash
-
-nt-sudo net stop LxssManager

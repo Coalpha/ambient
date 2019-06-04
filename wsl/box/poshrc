@@ -1,8 +1,0 @@
-#!/usr/bin/perl
-use strict;
-use warnings;
-
-my $args = join(' ', @ARGV) =~ s{/mnt/c}{C:}gr;
-my $cmd = "$ENV{'system32'}/WindowsPowerShell/v1.0/powershell.exe -command $args";
-my $output = `$cmd` or exit ($? >> 8);
-print $output =~ s{\r\n}{\n}gr;
